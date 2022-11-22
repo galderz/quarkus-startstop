@@ -178,7 +178,6 @@ public class StartStopTest {
             archiveLog(cn, mn, buildLogA);
             archiveLog(cn, mn, runLogA);
             writeReport(cn, mn, whatIDidReport.toString());
-            cleanTarget(app);
         }
     }
 
