@@ -1,8 +1,0 @@
-RULE skip graalvm check
-CLASS io.quarkus.deployment.pkg.steps.NativeImageBuildStep
-METHOD checkGraalVMVersion
-AT ENTRY
-IF TRUE
-DO
-  RETURN;
-ENDRULE

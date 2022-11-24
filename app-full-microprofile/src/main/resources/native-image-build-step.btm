@@ -1,0 +1,21 @@
+RULE skip graalvm check
+CLASS io.quarkus.deployment.pkg.steps.NativeImageBuildStep
+METHOD checkGraalVMVersion
+AT ENTRY
+IF TRUE
+DO
+  RETURN;
+ENDRULE
+
+RULE adjust native-image command line options
+CLASS io.quarkus.deployment.pkg.steps.NativeImageBuildStep$NativeImageInvokerInfo
+METHOD <init>(List)
+AT ENTRY
+BIND
+  args = $1;
+  indexOfLinkAtBuildTime = args.indexOf("--link-at-build-time");
+IF TRUE
+DO
+  args.remove(indexOfLinkAtBuildTime);
+  args.add(indexOfLinkAtBuildTime, "--allow-incomplete-classpath");
+ENDRULE
