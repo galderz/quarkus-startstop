@@ -13,9 +13,7 @@ METHOD <init>(List)
 AT ENTRY
 BIND
   args = $1;
-  indexOfLinkAtBuildTime = args.indexOf("--link-at-build-time");
 IF TRUE
 DO
-  args.remove(indexOfLinkAtBuildTime);
-  args.add(indexOfLinkAtBuildTime, "--allow-incomplete-classpath");
+  args.remove("--link-at-build-time");
 ENDRULE
