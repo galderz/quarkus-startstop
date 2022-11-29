@@ -5,7 +5,7 @@ import io.netty.buffer.PooledByteBufAllocator;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
-@Path("/hello")
+@Path("/netty")
 public class NettyController
 {
     @GET
