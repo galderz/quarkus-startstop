@@ -117,6 +117,7 @@ public class StartStopTest {
                 LOGGER.info("Running... round " + i);
                 runLogA = new File(appDir.getAbsolutePath() + File.separator + "logs" + File.separator + mvnCmds.name().toLowerCase() + "-run.log");
                 cmd = getRunCommand(mvnCmds.mvnCmds[1]);
+                LOGGER.info("Running command " + cmd);
                 appendln(whatIDidReport, appDir.getAbsolutePath());
                 appendlnSection(whatIDidReport, String.join(" ", cmd));
                 pA = runCommand(cmd, appDir, runLogA);
